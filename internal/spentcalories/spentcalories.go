@@ -77,7 +77,7 @@ func TrainingInfo(data string, weight, height float64) (string, error) {
 			log.Println(err)
 		}
 
-		trainingInfo = fmt.Sprintf("Тип тренировки: %s\nДлительность: %s ч.\nДистанция: %f км.\nСкорость: %f км/ч\nСожгли калорий: %f ", activityType, activityDuration, distance, meanSpeed, calories)
+		trainingInfo = fmt.Sprintf("Тип тренировки: %s\nДлительность: %.2f ч.\nДистанция: %.2f км.\nСкорость: %.2f км/ч\nСожгли калорий: %.2f\n", activityType, activityDuration.Hours()/1, distance, meanSpeed, calories)
 
 		return trainingInfo, nil
 
@@ -89,7 +89,7 @@ func TrainingInfo(data string, weight, height float64) (string, error) {
 			log.Println(err)
 		}
 
-		trainingInfo = fmt.Sprintf("Тип тренировки: %s\nДлительность: %s ч.\nДистанция: %f км.\nСкорость: %f км/ч\nСожгли калорий: %f ", activityType, activityDuration, distance, meanSpeed, calories)
+		trainingInfo = fmt.Sprintf("Тип тренировки: %s\nДлительность: %.2f ч.\nДистанция: %.2f км.\nСкорость: %.2f км/ч\nСожгли калорий: %.2f\n", activityType, activityDuration.Minutes()/60, distance, meanSpeed, calories)
 
 		return trainingInfo, nil
 
