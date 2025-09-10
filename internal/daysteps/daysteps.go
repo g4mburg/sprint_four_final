@@ -24,13 +24,13 @@ func parsePackage(data string) (int, time.Duration, error) {
 	stepCount, err := strconv.Atoi(parseData[0])
 	if err != nil {
 		return 0, 0, fmt.Errorf("error in number of steps")
-	} else if stepCount == 0 {
+	} else if stepCount <= 0 {
 		return 0, 0, fmt.Errorf("the number of steps is zero")
 	}
 	walkDuration, err := time.ParseDuration(parseData[1])
 	if err != nil {
 		return 0, 0, fmt.Errorf("error in the duration of the walk")
-	} else if walkDuration == 0 {
+	} else if walkDuration <= 0 {
 		return 0, 0, fmt.Errorf("the walking time is zero")
 	}
 	return stepCount, walkDuration, nil
@@ -41,7 +41,7 @@ func DayActionInfo(data string, weight, height float64) string {
 	if err != nil {
 		fmt.Println("something went wrong", err)
 		return ""
-	} else if stepCount == 0 {
+	} else if stepCount <= 0 {
 		fmt.Println("something went wrong", err)
 		return ""
 	}

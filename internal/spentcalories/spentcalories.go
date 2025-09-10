@@ -25,7 +25,7 @@ func parseTraining(data string) (int, string, time.Duration, error) {
 	stepCount, err := strconv.Atoi(parseData[0])
 	if err != nil {
 		return 0, "", time.Duration(0), err
-	} else if stepCount == 0 {
+	} else if stepCount <= 0 {
 		return 0, "", time.Duration(0), fmt.Errorf("the number of steps is zero")
 	}
 
@@ -34,7 +34,7 @@ func parseTraining(data string) (int, string, time.Duration, error) {
 	activityDuration, err := time.ParseDuration(parseData[2])
 	if err != nil {
 		return 0, "", time.Duration(0), err
-	} else if activityDuration == 0 {
+	} else if activityDuration <= 0 {
 		return 0, "", time.Duration(0), fmt.Errorf("the duration of the activity is zero")
 	}
 
@@ -100,16 +100,16 @@ func TrainingInfo(data string, weight, height float64) (string, error) {
 }
 
 func RunningSpentCalories(steps int, weight, height float64, duration time.Duration) (float64, error) {
-	if steps == 0 {
+	if steps <= 0 {
 		return 0, fmt.Errorf("the number of steps is zero")
 	}
-	if weight == 0 {
+	if weight <= 0 {
 		return 0, fmt.Errorf("weight is zero")
 	}
-	if height == 0 {
+	if height <= 0 {
 		return 0, fmt.Errorf("height is zero")
 	}
-	if duration == 0 {
+	if duration <= 0 {
 		return 0, fmt.Errorf("the duration of the running is zero")
 	}
 
@@ -123,16 +123,16 @@ func RunningSpentCalories(steps int, weight, height float64, duration time.Durat
 }
 
 func WalkingSpentCalories(steps int, weight, height float64, duration time.Duration) (float64, error) {
-	if steps == 0 {
+	if steps <= 0 {
 		return 0, fmt.Errorf("the number of steps is zero")
 	}
-	if weight == 0 {
+	if weight <= 0 {
 		return 0, fmt.Errorf("weight is zero")
 	}
-	if height == 0 {
+	if height <= 0 {
 		return 0, fmt.Errorf("height is zero")
 	}
-	if duration == 0 {
+	if duration <= 0 {
 		return 0, fmt.Errorf("the duration of the running is zero")
 	}
 
